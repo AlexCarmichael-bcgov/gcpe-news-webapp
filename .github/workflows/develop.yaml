@@ -13,6 +13,13 @@ jobs:
         with:
           oc: 4.10
 
+      - name: Check runner environment
+        run: |
+          echo "Runner OS: $RUNNER_OS"
+          echo "Runner arch: $RUNNER_ARCH"
+          uname -a
+          sudo --version
+
       - name: setup tektoncd cli
         uses: tektoncd/actions/setup-tektoncd-cli@main
         with:
