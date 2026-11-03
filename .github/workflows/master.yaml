@@ -12,11 +12,6 @@ jobs:
         uses: redhat-actions/openshift-tools-installer@v1
         with:
           oc: 4.10
-
-      - name: setup tektoncd cli
-        uses: tektoncd/actions/setup-tektoncd-cli@main
-        with:
-          version: latest
       
       - name: Install kubectl
         uses: azure/setup-kubectl@v3
