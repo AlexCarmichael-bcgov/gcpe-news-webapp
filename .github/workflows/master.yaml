@@ -1,4 +1,4 @@
-name: develop ci/cd pipeline
+name: master ci/cd pipeline
 on:
   push:
     branches:
