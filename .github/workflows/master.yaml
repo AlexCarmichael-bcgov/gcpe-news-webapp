@@ -1,28 +1,28 @@
-name: develop ci/cd pipeline
+name: master ci/cd pipeline
 on:
   push:
     branches:
       - master
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     environment: 'UAT'
     steps:
       - name: Install oc
         uses: redhat-actions/openshift-tools-installer@v1
         with:
           oc: 4.10
-
-      - name: setup tektoncd cli
-        uses: tektoncd/actions/setup-tektoncd-cli@main
-        with:
-          version: latest
       
       - name: Install kubectl
         uses: azure/setup-kubectl@v3
         with:
           version: 'latest'
-
+          
+      - name: setup tektoncd cli
+        uses: tektoncd/actions/setup-tektoncd-cli@main
+        with:
+          version: latest
+          
       - name: Log in to OpenShift
         uses: redhat-actions/oc-login@v1
         with:
